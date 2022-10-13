@@ -21,7 +21,7 @@ def random_value():
     rand_value = randint(1, 5) # generate random number (from a, to b)
     print("Rand value: ", rand_value)
 
-    places = dict({1: "Hindus", 2: "Chinol", 3: "Pizza", 4: "Burger", 5: "Sushi"})
+    places = dict({1: "Indian", 2: "China", 3: "Pizza", 4: "Burger", 5: "Sushi"})
 
     print(places[rand_value])
 
