@@ -25,7 +25,7 @@ def random_value():
 
     print(places[rand_value])
 
-# random_value()
+random_value()
 
 """
 podpiąć ceny z gazetek i przepisy, ma mi zwrócić najtańsze danie
