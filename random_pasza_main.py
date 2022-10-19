@@ -11,25 +11,30 @@ import pandas as pd
 def random_value():
 
     option = input('What do you want to do? * reset / rand *: ')
-    while True:
-        print(option)
-        if option == 'reset':
-            path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet.xlsx'
-        elif option == 'rand':
-            path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet_work.xlsx'
 
+    print(option)
+    if option == 'reset':
+        path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet.xlsx'
+        data = pd.read_excel(path)
+        df = pd.DataFrame(data)
+        df.to_excel('pasza_sheet_work.xlsx')
+        print(df)
+        random_value()
+    elif option == 'rand':
+        path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet_work.xlsx'
         data = pd.read_excel(path)
         df = pd.DataFrame(data)
         print(df)
         count_rows = len(df.place)
-
-        rand_value = randint(0, count_rows-1) # generate random number (from a, to b)
+        rand_value = randint(0, count_rows - 1)  # generate random number (from a, to b)
         print("Rand value: ", rand_value)
-
-        print(df.iloc[rand_value,0])
+        print(df.iloc[rand_value, 0])
         df = df.drop([rand_value])
-
         print(df)
         df.to_excel('pasza_sheet_work.xlsx')
+    else:
+        random_value()
+
 random_value()
+
 
