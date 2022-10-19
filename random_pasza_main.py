@@ -5,23 +5,31 @@ Program dedicated for people who don't know what to eat today!
 """
 
 
-#from random import seed
+
 from random import randint
 import pandas as pd
 def random_value():
-    data = pd.read_excel(r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet.xlsx')
-    df = pd.DataFrame(data)
-    print(df)
-    print('ILE: ',len(df.place))
-    #seed(0)
-    rand_value = randint(0, len(df.place)-1) # generate random number (from a, to b)
-    print("Rand value: ", rand_value)
-    #
-    # places = dict({1: "Indian", 2: "China", 3: "Pizza", 4: "Burger", 5: "Sushi"})
-    #
-    # print(places[rand_value])
-    print(df.iloc[rand_value,0])
 
+    option = input('What do you want to do? * reset / rand *: ')
+    while True:
+        print(option)
+        if option == 'reset':
+            path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet.xlsx'
+        elif option == 'rand':
+            path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet_work.xlsx'
 
+        data = pd.read_excel(path)
+        df = pd.DataFrame(data)
+        print(df)
+        count_rows = len(df.place)
+
+        rand_value = randint(0, count_rows-1) # generate random number (from a, to b)
+        print("Rand value: ", rand_value)
+
+        print(df.iloc[rand_value,0])
+        df = df.drop([rand_value])
+
+        print(df)
+        df.to_excel('pasza_sheet_work.xlsx')
 random_value()
 
