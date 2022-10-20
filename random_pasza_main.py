@@ -17,7 +17,7 @@ def random_value():
         path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet.xlsx'
         data = pd.read_excel(path)  #load original file
         df = pd.DataFrame(data)
-        df.to_excel('pasza_sheet_work.xlsx')
+        df.to_excel('pasza_sheet_work.xlsx', index=False) #save original rows to work file
         print(df)
         random_value()
     elif option == 'rand':
@@ -28,10 +28,10 @@ def random_value():
         count_rows = len(df.place)
         rand_value = randint(0, count_rows - 1)  # generate random number (from first, to last row)
         print("Rand value: ", rand_value)
-        print(df.iloc[rand_value, 0])
+        print('** Today you will eat: **',df.iloc[rand_value, 0])
         df = df.drop([rand_value])
         print(df)
-        df.to_excel('pasza_sheet_work.xlsx') #save file without drawed position
+        df.to_excel('pasza_sheet_work.xlsx', index=False) #save file without drawed position
     else:   #if user provide invalid input go to the begining of program
         random_value()
 
