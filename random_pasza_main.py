@@ -14,14 +14,14 @@ def random_value():
 
     print(option)
     if option == 'reset':
-        path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet.xlsx'
+        path = r'/home/bautegg/Documents/GitHub/random_pasza/pasza_sheet.xlsx'
         data = pd.read_excel(path)  #load original file
         df = pd.DataFrame(data)
         df.to_excel('pasza_sheet_work.xlsx', index=False) #save original rows to work file
         print(df)
         random_value()
     elif option == 'rand':
-        path = r'C:\Users\User\Documents\GitHub\random_pasza\pasza_sheet_work.xlsx'
+        path = r'/home/bautegg/Documents/GitHub/random_pasza/pasza_sheet_work.xlsx'
         data = pd.read_excel(path)  #load working file
         df = pd.DataFrame(data)
         print(df)
